@@ -4,7 +4,9 @@ from aim.conv import converse
 from act.actions import open_notepad, open_word, open_excel, open_ppt, open_calculator, open_cmd, take_screenshot, start_screen_record, stop_screen_record, open_camera, camera_vision, open_website
 import threading
 import ui.gui as gui 
-import time
+
+
+
 
 BOT_NAME = config("VA_NAME")
 
@@ -18,7 +20,7 @@ if __name__ == '__main__':
     gui_thread = threading.Thread(target=start_gui)
     gui_thread.start()
 
-    speak(f"I am your {BOT_NAME}. How may I help you?")
+    speak(f"Hello Cameron. I am {BOT_NAME}. How may I help you today master?")
 
     while True:
         query = listen()
@@ -36,7 +38,7 @@ if __name__ == '__main__':
 
         if intent == 'ACTION_AWAKEN':
             awake=True            
-            speak("How can I help you Sir?")            
+            speak("I am now awake. How can I help you today Sir?")            
             gui.awaken()
             continue
 
@@ -47,11 +49,11 @@ if __name__ == '__main__':
             continue
 
         if not awake:
-            print("Currently hibernating...Zzzz...nothing to do.")
+            print("Currently hibernating...Zzzz...wake me up if you need anything sir.")
             continue
 
         elif intent == 'ACTION_EXIT':
-            speak('Have a good day Sir')
+            speak('Have a phenomenal day Sir!')
             time.sleep(4)
             gui.close_window(exit_event)
             exit(1)
@@ -97,4 +99,4 @@ if __name__ == '__main__':
             open_camera()
 
         elif intent == "ACTION_WHAT_DO_YOU_SEE_IN_CAMERA":
-            camera_vision()      
+            camera_vision()          
