@@ -19,7 +19,7 @@ def awaken():
     root.deiconify()
     if canvas and line_id:
         canvas.itemconfig(line_id, fill='green')
-        canvas.itemconfig(text_id, text="At your service")
+        canvas.itemconfig(text_id, text="Enoch at your service")
 
 def disappear():
     global root
@@ -55,12 +55,12 @@ def appear():
         return
 
     root = tk.Tk()
-    root.title("The Virtual Assistant")
+    root.title("The Virtual Assistant Enoch")
     root.geometry("520x300")
     root.wm_attributes("-alpha", 0.85)
     root.configure(bg='black')  
 
-    logo = config("MEDIA_DIR") + "/" + "va.jpeg"
+    logo = config("MEDIA_DIR") + "/" + "Enoch.jpg"
     image = Image.open(logo)  
     image = image.resize((150, 150), Image.LANCZOS)
     photo = ImageTk.PhotoImage(image)
@@ -70,7 +70,7 @@ def appear():
  
     canvas = tk.Canvas(root, width=500, height=300, bg='black', highlightthickness=0)
     line_id = canvas.create_line(100, 2, 400, 2, width=10, fill='green')  # Draw a white line with width 20
-    text_id = canvas.create_text(240, 55, text="At your service~", fill='yellow', font=("Arial", 12), width=420)
+    text_id = canvas.create_text(240, 55, text="My name is Enoch and I am at your service~", fill='yellow', font=("Arial", 12), width=420)
     canvas.grid(row=1, column=0, pady=(10, 10), padx=10)  # Adjusted pady to position canvas just below the image
 
     root.resizable(False, False)  
