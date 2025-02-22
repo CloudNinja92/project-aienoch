@@ -10,9 +10,10 @@ engine.setProperty('rate', 190)
 # Set Volume
 engine.setProperty('volume', 1.0)
 
-# Set Voice (Female)
+# Set Voice (Male)
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[1].id)
+engine.setProperty('voice', voices[0].id)
+
 
 def speak(text):
     gui.update_text_speaker(text)
@@ -28,7 +29,7 @@ def listen():
     
     try:
         print('Recognizing...')
-        query = r.recognize_google(audio, language='en-in')
+        query = r.recognize_google(audio, language='en-GB')
         gui.update_text_listener(query)
     except Exception as e:
         query = None 
